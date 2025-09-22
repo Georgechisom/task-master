@@ -1,0 +1,217 @@
+/* auth.css */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  z-index: 50;
+  background: linear-gradient(to right, #312e81, #1e40af);
+  background-color: rgba(49, 46, 129, 0.9);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-top: 2px solid rgba(20, 184, 166, 0.5);
+  transition: all 0.3s ease;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 2rem;
+  padding-top: 80px; /* Add padding to account for fixed navbar */
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.auth-tabs {
+  width: 100%;
+  display: flex;
+  background: rgba(55, 65, 81, 0.5);
+  border-radius: 8px;
+  padding: 4px;
+  margin-bottom: 2rem;
+}
+
+.auth-tab-trigger {
+  flex: 1;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  color: #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.auth-tab-trigger.active {
+  background: rgba(20, 184, 166, 0.2);
+  color: #14b8a6;
+}
+
+.auth-tab-trigger:hover:not(.active) {
+  background: rgba(20, 184, 166, 0.1);
+  color: #5eead4;
+}
+
+.auth-card {
+  background: rgba(31, 41, 55, 0.8);
+  border: 1px solid rgba(55, 65, 81, 0.5);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.auth-card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-card-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.auth-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.auth-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #d1d5db;
+}
+
+.auth-input {
+  padding: 12px 16px;
+  background: rgba(55, 65, 81, 0.5);
+  border: 1px solid rgba(75, 85, 99, 0.5);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #14b8a6;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+}
+
+.auth-input::placeholder {
+  color: #9ca3af;
+}
+
+.auth-button {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #14b8a6, #0f766e);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-button:hover {
+  background: linear-gradient(135deg, #0f766e, #0d9488);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+}
+
+.auth-button:disabled {
+  background: #6b7280;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.auth-button-outline {
+  padding: 12px 24px;
+  background: transparent;
+  color: #d1d5db;
+  border: 1px solid rgba(75, 85, 99, 0.5);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.auth-button-outline:hover {
+  background: rgba(20, 184, 166, 0.1);
+  color: #5eead4;
+  border-color: rgba(20, 184, 166, 0.3);
+  transform: translateY(-1px);
+}
+
+.auth-button-outline:disabled {
+  background: transparent;
+  color: #6b7280;
+  border-color: #6b7280;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-forgot-password {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.auth-forgot-password a {
+  color: #14b8a6;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+
+.auth-forgot-password a:hover {
+  color: #5eead4;
+  text-decoration: underline;
+}
+
+.auth-tab-content {
+  display: none;
+}
+
+.auth-tab-content.active {
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 1rem;
+  }
+
+  .auth-container {
+    max-width: 100%;
+  }
+
+  .auth-card {
+    padding: 1.5rem;
+  }
+
+  .auth-card-title {
+    font-size: 1.5rem;
+  }
+}

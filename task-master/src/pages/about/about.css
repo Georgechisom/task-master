@@ -1,0 +1,233 @@
+/* about.css */
+.about-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  z-index: 50;
+  background: linear-gradient(to right, #312e81, #1e40af);
+  background-color: rgba(49, 46, 129, 0.9);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-top: 2px solid rgba(20, 184, 166, 0.5);
+  transition: all 0.3s ease;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding-top: 80px; /* Add padding to account for fixed navbar */
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.about-mission {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-title {
+  font-size: 3.75rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #fbbf24;
+}
+
+.about-description {
+  font-size: 1.25rem;
+  color: #9ca3af;
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.about-team {
+  margin-bottom: 4rem;
+}
+
+.about-section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #fbbf24;
+}
+
+.about-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.about-team-card {
+  background: rgba(55, 65, 81, 0.8);
+  border: 1px solid rgba(75, 85, 99, 0.5);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.about-team-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.about-team-avatar {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  border: 3px solid rgba(20, 184, 166, 0.5);
+}
+
+.about-team-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.about-team-role {
+  color: #14b8a6;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.about-team-social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.about-social-link {
+  color: #9ca3af;
+  transition: color 0.2s ease, transform 0.1s ease;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.about-social-link:hover {
+  color: white;
+  transform: scale(1.1);
+  background-color: rgba(20, 184, 166, 0.2);
+}
+
+.about-contact {
+  display: flex;
+  justify-content: center;
+}
+
+.about-contact-card {
+  background: rgba(55, 65, 81, 0.8);
+  border: 1px solid rgba(75, 85, 99, 0.5);
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 32rem;
+  overflow: hidden;
+}
+
+.about-contact-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(75, 85, 99, 0.5);
+}
+
+.about-contact-title {
+  font-size: 1.875rem;
+  font-weight: 800;
+  text-align: center;
+  color: #fbbf24;
+}
+
+.about-contact-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-contact-input,
+.about-contact-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(31, 41, 55, 0.8);
+  border: 1px solid rgba(75, 85, 99, 0.5);
+  border-radius: 0.25rem;
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.about-contact-input::placeholder,
+.about-contact-textarea::placeholder {
+  color: #9ca3af;
+}
+
+.about-contact-input:focus,
+.about-contact-textarea:focus {
+  outline: none;
+  border-color: #14b8a6;
+  box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.2);
+}
+
+.about-contact-textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.about-contact-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #14b8a6;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.about-contact-button:hover {
+  background: #0f766e;
+  transform: translateY(-1px);
+}
+
+.about-contact-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .about-page {
+    padding: 1rem;
+  }
+
+  .about-title {
+    font-size: 2.25rem;
+  }
+
+  .about-description {
+    font-size: 1rem;
+  }
+
+  .about-section-title {
+    font-size: 1.875rem;
+  }
+
+  .about-team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-team-card {
+    max-width: 100%;
+  }
+}
