@@ -5,9 +5,9 @@ import {
   supabase,
   signInWithEmail,
   signUpWithEmail,
-  signInWithGoogle,
   signOut,
   resetPassword,
+  signInWithGoogle,
 } from "@/lib/supabase";
 import toast from "react-hot-toast";
 
@@ -41,6 +41,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
       setUser(session?.user ?? null);
+      setLoading(false);
     });
 
     return () => subscription.unsubscribe();
@@ -52,8 +53,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       await signInWithEmail(email, password);
       console.log("passowrd", password);
       toast.success("Logged in successfully!");
-    } catch (error: any) {
-      toast.error(error.message || "Failed to sign in");
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Failed to sign in";
+      toast.error(errorMessage);
       throw error;
     } finally {
       setLoading(false);
@@ -67,20 +70,27 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       toast.success(
         "Signed up successfully! Please check your email to verify your account."
       );
-    } catch (error: any) {
-      toast.error(error.message || "Failed to sign up");
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Failed to sign up";
+      toast.error(errorMessage);
       throw error;
     } finally {
       setLoading(false);
     }
   };
 
-  const signInWithGoogle = async () => {
+  const signInWithGoogleUser = async () => {
     try {
       setLoading(true);
       await signInWithGoogle();
-    } catch (error: any) {
-      toast.error(error.message || "Failed to sign in with Google");
+      toast.success("Redirecting to Google...");
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Failed to sign in with Google";
+      toast.error(errorMessage);
       throw error;
     } finally {
       setLoading(false);
@@ -92,8 +102,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setLoading(true);
       await signOut();
       toast.success("Logged out successfully!");
-    } catch (error: any) {
-      toast.error(error.message || "Failed to log out");
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Failed to log out";
+      toast.error(errorMessage);
       throw error;
     } finally {
       setLoading(false);
@@ -105,8 +117,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setLoading(true);
       await resetPassword(email);
       toast.success("Password reset email sent!");
-    } catch (error: any) {
-      toast.error(error.message || "Failed to send password reset email");
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Failed to send password reset email";
+      toast.error(errorMessage);
       throw error;
     } finally {
       setLoading(false);
@@ -121,7 +137,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         loading,
         signIn,
         signUp,
-        signInWithGoogle,
+        signInWithGoogle: signInWithGoogleUser,
         signOut: signOutUser,
         resetPassword: resetPasswordUser,
       }}

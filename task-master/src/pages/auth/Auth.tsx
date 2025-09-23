@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Github } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import "./auth.css";
 
@@ -9,10 +10,12 @@ const Auth = () => {
   const [name, setName] = useState("");
   const [activeTab, setActiveTab] = useState("login");
   const { signIn, signUp, signInWithGoogle, loading } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
       await signIn(email, password);
+      navigate("/tasks");
     } catch (error) {
       console.error("Login failed:", error);
     }
@@ -21,6 +24,7 @@ const Auth = () => {
   const handleSignup = async () => {
     try {
       await signUp(email, password, name);
+      navigate("/tasks");
     } catch (error) {
       console.error("Signup failed:", error);
     }

@@ -5,16 +5,15 @@
   flex-direction: column;
   width: 100%;
   z-index: 50;
-  background: linear-gradient(to right, #312e81, #1e40af);
-  background-color: rgba(49, 46, 129, 0.9);
+  background: hsl(var(--card));
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  border-top: 2px solid rgba(20, 184, 166, 0.5);
+  border-top: 2px solid var(--navbar-accent);
   transition: all 0.3s ease;
   overflow-x: hidden;
   box-sizing: border-box;
-  padding-top: 80px; /* Add padding to account for fixed navbar */
+  padding-top: 90px; /* Add padding to account for fixed navbar */
 }
 
 .profile-container {
@@ -27,13 +26,13 @@
   font-size: 2.25rem;
   font-weight: 800;
   margin-bottom: 2rem;
-  color: #fbbf24;
+  color: var(--navbar-accent);
 }
 
 .profile-card {
-  background: rgba(55, 65, 81, 0.8);
-  border: 1px solid rgba(75, 85, 99, 0.5);
-  border-radius: 0.5rem;
+  background: var(--card);
+  border: 1px solid #fbbf24;
+  border-radius: 1.5rem;
   width: 100%;
   max-width: 32rem;
   margin: 0 auto;
@@ -43,7 +42,7 @@
 .profile-header {
   padding: 2rem;
   text-align: center;
-  border-bottom: 1px solid rgba(75, 85, 99, 0.5);
+  border-bottom: 1px solid #fbbf24;
 }
 
 .profile-avatar {
@@ -51,14 +50,14 @@
   height: 6rem;
   border-radius: 50%;
   margin: 0 auto 1rem;
-  border: 3px solid rgba(20, 184, 166, 0.5);
-  background: rgba(31, 41, 55, 0.8);
+  border: 3px solid var(--navbar-accent);
+  background: var(--card);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
   font-weight: 800;
-  color: #fbbf24;
+  color: var(--navbar-accent);
 }
 
 .profile-avatar-image {
@@ -89,7 +88,7 @@
 }
 
 .profile-label {
-  color: #9ca3af;
+  color: #fbbf24;
   font-size: 0.875rem;
   font-weight: 500;
 }
@@ -97,10 +96,10 @@
 .profile-input {
   width: 100%;
   padding: 0.75rem;
-  background: rgba(31, 41, 55, 0.8);
-  border: 1px solid rgba(75, 85, 99, 0.5);
+  background: var(--card);
+  border: 1px solid #fbbf24;
   border-radius: 0.25rem;
-  color: white;
+  color: #fbbf24;
   font-size: 1rem;
   box-sizing: border-box;
 }
@@ -112,19 +111,19 @@
 
 .profile-input:focus {
   outline: none;
-  border-color: #14b8a6;
-  box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.2);
+  border-color: var(--navbar-accent);
+  box-shadow: 0 0 0 2px #fbbf24;
 }
 
 .profile-input::placeholder {
-  color: #9ca3af;
+  color: #fbbf24;
 }
 
 .profile-button {
   width: 100%;
   padding: 0.75rem;
-  background: #14b8a6;
-  color: white;
+  background: var(--navbar-accent);
+  color: var(--foreground);
   border: none;
   border-radius: 0.25rem;
   font-size: 1rem;
@@ -135,7 +134,8 @@
 }
 
 .profile-button:hover {
-  background: #0f766e;
+  background: var(--navbar-accent);
+  opacity: 0.8;
   transform: translateY(-1px);
 }
 
@@ -146,18 +146,19 @@
 /* Settings sections */
 .profile-settings-section {
   margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 
 .profile-section-title {
   font-size: 1.875rem;
   font-weight: 800;
-  color: #fbbf24;
+  color: var(--navbar-accent);
   margin-bottom: 1rem;
 }
 
 .profile-settings-card {
-  background: rgba(55, 65, 81, 0.8);
-  border: 1px solid rgba(75, 85, 99, 0.5);
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 0.5rem;
   padding: 1.5rem;
   margin-bottom: 1rem;
@@ -171,7 +172,7 @@
 }
 
 .profile-setting-label {
-  color: #9ca3af;
+  color: var(--muted-foreground);
   font-size: 1rem;
 }
 
@@ -182,10 +183,10 @@
 
 .profile-theme-button {
   padding: 0.5rem 1rem;
-  border: 1px solid rgba(75, 85, 99, 0.5);
+  border: 1px solid var(--border);
   border-radius: 0.25rem;
   background: transparent;
-  color: white;
+  color: #fbbf24;
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 0.875rem;
@@ -193,12 +194,13 @@
 
 .profile-theme-button:hover {
   background: rgba(20, 184, 166, 0.2);
-  border-color: #14b8a6;
+  border-color: var(--navbar-accent);
 }
 
 .profile-theme-button.active {
-  background: #14b8a6;
-  border-color: #14b8a6;
+  background: var(--navbar-accent);
+  border-color: var(--navbar-accent);
+  color: #000000;
 }
 
 .profile-save-button {
@@ -206,10 +208,10 @@
   max-width: 32rem;
   margin: 2rem auto 0;
   padding: 0.75rem;
-  background: #14b8a6;
-  color: white;
-  border: none;
-  border-radius: 0.25rem;
+  background: transparent;
+  color: #fbbf24;
+  border: 2px solid #fbbf24;
+  border-radius: 2.25rem;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
@@ -217,8 +219,10 @@
 }
 
 .profile-save-button:hover {
-  background: #0f766e;
+  background: var(--navbar-accent);
+  opacity: 0.8;
   transform: translateY(-1px);
+  margin-bottom: 10%;
 }
 
 .profile-save-button:active {
@@ -246,7 +250,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #374151;
+  background-color: var(--border);
   transition: 0.4s;
   border-radius: 34px;
 }
@@ -264,7 +268,7 @@
 }
 
 .profile-switch input:checked + .profile-slider {
-  background-color: #14b8a6;
+  background-color: var(--navbar-accent);
 }
 
 .profile-switch input:checked + .profile-slider:before {
@@ -275,6 +279,10 @@
 @media (max-width: 768px) {
   .profile-page {
     padding: 1rem;
+    padding-top: 100px; /* Account for fixed navbar */
+    padding-bottom: 120px; /* Account for fixed footer */
+    margin: 0;
+    min-height: 100vh;
   }
 
   .profile-title {

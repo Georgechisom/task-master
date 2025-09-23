@@ -2,7 +2,7 @@
 .footer {
   width: 100%;
   z-index: 50;
-  background: linear-gradient(to right, #312e81, #1e40af);
+  background: var(--navbar-bg);
   background-color: rgba(49, 46, 129, 0.9);
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -15,12 +15,12 @@
 
 .footer-container {
   max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px; /* Minimal horizontal padding */
-  flex-direction: row;
-  gap: 5%;
+  padding: 20px;
+  gap: 2rem;
 }
 
 .footer-brand {
@@ -31,11 +31,11 @@
 .footer-brand p:first-child {
   font-size: 1.125rem;
   font-weight: bold;
-  color: #fbbf24; /* Gold color to match navbar logo */
+  color: var(--navbar-accent); /* Gold color to match navbar logo */
 }
 
 .footer-brand p:last-child {
-  color: #e5e7eb; /* Light gray to match navbar text */
+  color: var(--navbar-text); /* Light gray to match navbar text */
 }
 
 .footer-nav {
@@ -47,9 +47,11 @@
 }
 
 .footer-nav a {
-  color: #e5e7eb; /* Light gray to match navbar text */
+  color: var(--navbar-text); /* Light gray to match navbar text */
   text-decoration: none;
   transition: color 0.2s ease, transform 0.1s ease;
+  display: block;
+  padding: 4px 0;
 }
 
 .footer-nav a:hover {
@@ -63,44 +65,93 @@
 }
 
 .footer-social a {
-  color: #e5e7eb; /* Light gray to match navbar text */
+  color: var(--navbar-text); /* Light gray to match navbar text */
   transition: color 0.2s ease;
 }
 
 .footer-social a:hover {
-  color: #fbbf24; /* Gold color to match navbar logo hover */
+  color: var(--navbar-accent); /* Gold color to match navbar logo hover */
 }
 
 .footer-social svg {
   width: 20px;
   height: 20px;
 }
-.footer-reserved {
-  color: white;
-  display: block;
+.footer-reserved p {
+  color: var(--navbar-text);
+  margin: 0;
+  font-size: 0.875rem;
 }
 
-/* Responsive design */
+/* Desktop Layout - Row */
 @media (min-width: 768px) {
   .footer-container {
-    flex-direction: column;
-    padding: 0 40px; /* More padding on larger screens */
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .footer-brand {
+    flex: 1;
     text-align: left;
+  }
+
+  .footer-nav {
+    flex: 2;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-social {
+    flex: 1;
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .footer-reserved {
+    flex-basis: 100%;
+    text-align: center;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Mobile Layout - Column */
+@media (max-width: 767px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 16px;
+  }
+
+  .footer-brand {
+    text-align: center;
     margin-bottom: 0;
   }
 
   .footer-nav {
-    margin-bottom: 0;
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 767px) {
-  .footer-container {
+    display: flex;
     flex-direction: column;
-    padding: 0 16px; /* Minimal padding on mobile */
+    gap: 12px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-reserved {
+    text-align: center;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 }

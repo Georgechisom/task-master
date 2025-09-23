@@ -5,12 +5,11 @@
   flex-direction: column;
   width: 100%;
   z-index: 50;
-  background: linear-gradient(to right, #312e81, #1e40af);
-  background-color: rgba(49, 46, 129, 0.9);
+  background: hsl(var(--card));
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  border-top: 2px solid rgba(20, 184, 166, 0.5);
+  border-top: 2px solid var(--navbar-accent);
   transition: all 0.3s ease;
   overflow-x: hidden;
   box-sizing: border-box;
@@ -32,12 +31,12 @@
   font-size: 3.75rem;
   font-weight: 800;
   margin-bottom: 1rem;
-  color: #fbbf24;
+  color: var(--navbar-accent);
 }
 
 .about-description {
   font-size: 1.25rem;
-  color: #9ca3af;
+  color: var(--muted-foreground);
   max-width: 48rem;
   margin: 0 auto;
   line-height: 1.6;
@@ -52,7 +51,7 @@
   font-weight: 800;
   text-align: center;
   margin-bottom: 2rem;
-  color: #fbbf24;
+  color: var(--navbar-accent);
 }
 
 .about-team-grid {
@@ -63,8 +62,8 @@
 }
 
 .about-team-card {
-  background: rgba(55, 65, 81, 0.8);
-  border: 1px solid rgba(75, 85, 99, 0.5);
+  background: var(--card);
+  border: 1px solid #fbbf24;
   border-radius: 0.5rem;
   padding: 1.5rem;
   text-align: center;
@@ -84,18 +83,18 @@
   height: 6rem;
   border-radius: 50%;
   margin: 0 auto 1rem;
-  border: 3px solid rgba(20, 184, 166, 0.5);
+  border: 3px solid var(--navbar-accent);
 }
 
 .about-team-name {
   font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
-  color: white;
+  color: var(--foreground);
 }
 
 .about-team-role {
-  color: #14b8a6;
+  color: var(--navbar-accent);
   margin-bottom: 1rem;
   font-weight: 500;
 }
@@ -126,17 +125,18 @@
 }
 
 .about-contact-card {
-  background: rgba(55, 65, 81, 0.8);
-  border: 1px solid rgba(75, 85, 99, 0.5);
+  background: var(--card);
+  border: 1px solid #fbbf24;
   border-radius: 0.5rem;
   width: 100%;
   max-width: 32rem;
+  margin-bottom: 10%;
   overflow: hidden;
 }
 
 .about-contact-header {
   padding: 1.5rem;
-  border-bottom: 1px solid rgba(75, 85, 99, 0.5);
+  border-bottom: 1px solid #fbbf24;
 }
 
 .about-contact-title {
@@ -157,17 +157,17 @@
 .about-contact-textarea {
   width: 100%;
   padding: 0.75rem;
-  background: rgba(31, 41, 55, 0.8);
-  border: 1px solid rgba(75, 85, 99, 0.5);
+  background: #fbbf24);
+  border: 1px solid #fbbf24;
   border-radius: 0.25rem;
-  color: white;
+  color: #fbbf24;
   font-size: 1rem;
   box-sizing: border-box;
 }
 
 .about-contact-input::placeholder,
 .about-contact-textarea::placeholder {
-  color: #9ca3af;
+  color: var(--muted-foreground);
 }
 
 .about-contact-input:focus,
@@ -185,8 +185,8 @@
 .about-contact-button {
   width: 100%;
   padding: 0.75rem;
-  background: #14b8a6;
-  color: white;
+  background: var(--navbar-accent);
+  color: var(--foreground);
   border: none;
   border-radius: 0.25rem;
   font-size: 1rem;
@@ -196,7 +196,8 @@
 }
 
 .about-contact-button:hover {
-  background: #0f766e;
+  background: var(--navbar-accent);
+  opacity: 0.8;
   transform: translateY(-1px);
 }
 
@@ -208,6 +209,10 @@
 @media (max-width: 768px) {
   .about-page {
     padding: 1rem;
+    padding-top: 100px; /* Account for fixed navbar */
+    padding-bottom: 120px; /* Account for fixed footer */
+    margin: 0;
+    min-height: 100vh;
   }
 
   .about-title {

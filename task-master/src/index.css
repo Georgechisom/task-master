@@ -33,33 +33,35 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    /* Dark theme variables */
+    --background: 240 10% 3.9%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
+    --card: 240 10% 3.9%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    --popover: 240 10% 3.9%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    /* Dark theme specific colors */
+    --navbar-bg: linear-gradient(to right, #1e1b4b, #1e3a8a);
+    --navbar-text: #f1f5f9;
+    --navbar-accent: #fbbf24;
+    --surface-bg: #0f172a;
+    --surface-text: #f8fafc;
+    --button-bg: #6366f1;
+    --button-text: #ffffff;
   }
 }
 
@@ -105,5 +107,57 @@
   /* Ensure pages take full height */
   .page-container {
     min-height: 100vh;
+  }
+
+  /* Global theme-aware styling */
+  .navbar {
+    background: var(--navbar-bg);
+    color: var(--navbar-text);
+  }
+
+  .navbar-logo {
+    color: var(--navbar-accent);
+  }
+
+  .navbar-nav a {
+    color: var(--navbar-text);
+  }
+
+  .navbar-nav a:hover {
+    color: #5eead4;
+  }
+
+  .card,
+  .surface {
+    background-color: var(--surface-bg);
+    color: var(--surface-text);
+  }
+
+  .btn,
+  .button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+  }
+
+  /* Form elements */
+  input,
+  textarea,
+  select {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--border));
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline-color: hsl(var(--ring));
+    border-color: hsl(var(--ring));
+  }
+
+  /* Ensure smooth transitions for theme changes */
+  * {
+    transition: background-color 0.3s ease, color 0.3s ease,
+      border-color 0.3s ease;
   }
 }

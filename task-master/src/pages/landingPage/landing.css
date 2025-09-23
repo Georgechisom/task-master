@@ -4,12 +4,11 @@
   flex-direction: column;
   width: 100%;
   z-index: 50;
-  background: linear-gradient(to right, #312e81, #1e40af);
-  background-color: rgba(49, 46, 129, 0.9);
+  background: hsl(var(--card));
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  border-top: 2px solid rgba(20, 184, 166, 0.5);
+  border-top: 2px solid var(--navbar-accent);
   transition: all 0.3s ease;
   overflow-x: hidden;
   box-sizing: border-box;
@@ -20,8 +19,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom right, #312e81, #111827, #000000);
-  color: white;
+  background: var(--background);
+  color: #fbbf24;
   width: 100%;
   margin: 0;
   padding: 16px;
@@ -46,7 +45,7 @@
 
 .landing-subtitle {
   font-size: 1.125rem;
-  color: #d1d5db;
+  color: var(--muted-foreground);
   max-width: 48rem;
   margin: 0 auto;
   animation: fadeInUp 1s ease-out 0.3s both;
@@ -71,8 +70,8 @@
 
 .landing-features {
   padding: 80px 0;
-  background-color: #111827;
-  color: white;
+  background-color: var(--background);
+  color: #fbbf24;
   width: 100%;
   margin: 0;
   overflow-x: hidden;
@@ -98,11 +97,12 @@
 }
 
 .landing-feature-card {
-  background-color: #1f2937;
-  border: 1px solid #374151;
+  background-color: var(--card);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 24px;
   transition: transform 0.3s ease;
+  border: 1px solid #fbbf24;
 }
 
 .landing-feature-card:hover {
@@ -129,7 +129,7 @@
 }
 
 .landing-feature-description {
-  color: #9ca3af;
+  color: var(--muted-foreground);
   line-height: 1.6;
 }
 
@@ -198,6 +198,7 @@
 
   .landing-hero-content {
     padding: 16px;
+    margin-top: 10%;
   }
 
   .landing-title {
